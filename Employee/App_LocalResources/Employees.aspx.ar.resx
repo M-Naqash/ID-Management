@@ -1,0 +1,429 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="btnSaveResource1.Text" xml:space="preserve">
+    <value>حفظ</value>
+  </data>
+  <data name="btnSaveResource1.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="cvShowMsgResource1.ErrorMessage" xml:space="preserve">
+    <value />
+  </data>
+  <data name="cvShowMsgResource1.Text" xml:space="preserve">
+    <value />
+  </data>
+  <data name="cvShowMsgResource1.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="cvtxtValidResource1.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="ddlJobTitleArResource1.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="ddlJobTitleResource1.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="lblEmpIdentityResource1.Text" xml:space="preserve">
+    <value>الرقم الوظيفي :</value>
+  </data>
+  <data name="lblEmpIdentityResource1.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="lblEmpNameArResource1.Text" xml:space="preserve">
+    <value>اسم الموظف (ع) :</value>
+  </data>
+  <data name="lblEmpNameArResource1.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="lblEmpNameEnResource1.Text" xml:space="preserve">
+    <value>اسم الموظف (En) :</value>
+  </data>
+  <data name="lblEmpNameEnResource1.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="lblEmpNationalIDResource1.Text" xml:space="preserve">
+    <value>رقم الهوية :</value>
+  </data>
+  <data name="lblEmpNationalIDResource1.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="lblHireDateResource1.Text" xml:space="preserve">
+    <value>تاريخ التعيين :</value>
+  </data>
+  <data name="lblHireDateResource1.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="lblJobTitleArResource1.Text" xml:space="preserve">
+    <value>المسمى الوظيفي (ع) :</value>
+  </data>
+  <data name="lblJobTitleArResource1.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="lblJobTitleResource1.Text" xml:space="preserve">
+    <value>المسمى الوظيفي (En) :</value>
+  </data>
+  <data name="lblJobTitleResource1.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="LitDepNameArResource1.Text" xml:space="preserve">
+    <value>*</value>
+  </data>
+  <data name="LitDepNameResource1.Text" xml:space="preserve">
+    <value>*</value>
+  </data>
+  <data name="litEmpIdResource1.Text" xml:space="preserve">
+    <value>*</value>
+  </data>
+  <data name="LitEmpNameArResource1.Text" xml:space="preserve">
+    <value>*</value>
+  </data>
+  <data name="LitEmpNameEnResource1.Text" xml:space="preserve">
+    <value>*</value>
+  </data>
+  <data name="LitIdExpiryDateHResource1.Text" xml:space="preserve">
+    <value>*</value>
+  </data>
+  <data name="LitIdExpiryDateResource1.Text" xml:space="preserve">
+    <value>*</value>
+  </data>
+  <data name="LitIdHireDateResource1.Text" xml:space="preserve">
+    <value>*</value>
+  </data>
+  <data name="LitImgResource1.Text" xml:space="preserve">
+    <value>*</value>
+  </data>
+  <data name="LitJobTitleArResource1.Text" xml:space="preserve">
+    <value>*</value>
+  </data>
+  <data name="LitJobTitleResource1.Text" xml:space="preserve">
+    <value>*</value>
+  </data>
+  <data name="LitNationalIDResource1.Text" xml:space="preserve">
+    <value>*</value>
+  </data>
+  <data name="PageResource1.Title" xml:space="preserve">
+    <value>صفحة الموظفين</value>
+  </data>
+  <data name="rvEmpIdentityResource1.ErrorMessage" xml:space="preserve">
+    <value />
+  </data>
+  <data name="rvEmpIdentityResource1.Text" xml:space="preserve">
+    <value>&lt;img src='../Images/icon/Exclamation.gif' title='الرقم الوظيفي مطلوب!' /&gt;</value>
+  </data>
+  <data name="rvEmpIdentityResource1.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="rvEmpNameArResource1.ErrorMessage" xml:space="preserve">
+    <value />
+  </data>
+  <data name="rvEmpNameArResource1.Text" xml:space="preserve">
+    <value>&lt;img src='../Images/icon/Exclamation.gif' title='اسم الموظف (ع) مطلوب!' /&gt;</value>
+  </data>
+  <data name="rvEmpNameArResource1.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="rvtxtEmpNationalIDResource1.ErrorMessage" xml:space="preserve">
+    <value />
+  </data>
+  <data name="rvtxtEmpNationalIDResource1.Text" xml:space="preserve">
+    <value>&lt;img src='../Images/icon/Exclamation.gif' title='رقم الهوية مطلوب!' /&gt;</value>
+  </data>
+  <data name="rvtxtEmpNationalIDResource1.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="txtEmpIdentityResource1.Text" xml:space="preserve">
+    <value />
+  </data>
+  <data name="txtEmpIdentityResource1.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="txtEmpNameArResource1.Text" xml:space="preserve">
+    <value />
+  </data>
+  <data name="txtEmpNameArResource1.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="txtEmpNameEnResource1.Text" xml:space="preserve">
+    <value />
+  </data>
+  <data name="txtEmpNameEnResource1.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="txtEmpNationalIDResource1.Text" xml:space="preserve">
+    <value />
+  </data>
+  <data name="txtEmpNationalIDResource1.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="vsSaveResource1.HeaderText" xml:space="preserve">
+    <value />
+  </data>
+  <data name="vsSaveResource1.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="vsShowMsgResource1.HeaderText" xml:space="preserve">
+    <value />
+  </data>
+  <data name="vsShowMsgResource1.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="btnIDSearchResource1.Text" xml:space="preserve">
+    <value>بحث</value>
+  </data>
+  <data name="btnIDSearchResource1.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="lblIDSearchResource1.Text" xml:space="preserve">
+    <value>الرقم الوظيفي :</value>
+  </data>
+  <data name="lblEmpCardTypeResource1.Text" xml:space="preserve">
+    <value>نوع الموظف :</value>
+  </data>
+  <data name="cvcalBirthDateResource1.Text" xml:space="preserve">
+    <value />
+  </data>
+  <data name="lblBloodGroupResource1.Text" xml:space="preserve">
+    <value>فصيلة الدم :</value>
+  </data>
+  <data name="lblCompIDResource1.Text" xml:space="preserve">
+    <value>الشركة :</value>
+  </data>
+  <data name="lblGenderResource1.Text" xml:space="preserve">
+    <value>الجنس :</value>
+  </data>
+  <data name="lblBirthDateResource1.Text" xml:space="preserve">
+    <value>تاريخ الميلاد :</value>
+  </data>
+  <data name="lblNationalityResource1.Text" xml:space="preserve">
+    <value>الجنسية :</value>
+  </data>
+  <data name="ListItemBloodGroupResource1.Text" xml:space="preserve">
+    <value>- اختر فصيلة الدم -</value>
+  </data>
+  <data name="ListItemContractorResource1.Text" xml:space="preserve">
+    <value>متعاقد شركة</value>
+  </data>
+  <data name="ListItemEmployeeResource1.Text" xml:space="preserve">
+    <value>الجهات الخارجية</value>
+  </data>
+  <data name="ListItemFemaleResource1.Text" xml:space="preserve">
+    <value>أنثى</value>
+  </data>
+  <data name="ListItemMaleResource1.Text" xml:space="preserve">
+    <value>ذكر</value>
+  </data>
+  <data name="ListItemManagerResource1.Text" xml:space="preserve">
+    <value>موظف أرامكو</value>
+  </data>
+  <data name="LitBirthDateResource1.Text" xml:space="preserve">
+    <value>*</value>
+  </data>
+  <data name="LitBloodGroupResource1.Text" xml:space="preserve">
+    <value>*</value>
+  </data>
+  <data name="LitCompIDResource1.Text" xml:space="preserve">
+    <value>*</value>
+  </data>
+  <data name="LitGenderResource1.Text" xml:space="preserve">
+    <value>*</value>
+  </data>
+  <data name="LitNationalityResource1.Text" xml:space="preserve">
+    <value>*</value>
+  </data>
+  <data name="rfvCompIDResource1.Text" xml:space="preserve">
+    <value>&lt;img src='../Images/icon/Exclamation.gif' title='الشركة مطلوب!' /&gt;</value>
+  </data>
+  <data name="rfvddlBloodGroupResource1.Text" xml:space="preserve">
+    <value>&lt;img src='../Images/icon/Exclamation.gif' title='فصيلة الدم مطلوبة!' /&gt;</value>
+  </data>
+  <data name="rfvddlEmpTypeResource1.Text" xml:space="preserve">
+    <value>&lt;img src='../Images/icon/Exclamation.gif' title='نوع الموظف مطلوب!' /&gt;</value>
+  </data>
+  <data name="rfvddlNatIDResource1.Text" xml:space="preserve">
+    <value>&lt;img src='../Images/icon/Exclamation.gif' title='الجنسية مطلوبة!' /&gt;</value>
+  </data>
+  <data name="rfvtxtJobTitleArResource1.Text" xml:space="preserve">
+    <value>&lt;img src='../Images/icon/Exclamation.gif' title='المسمى الوظيفي (ع) مطلوب!' /&gt;</value>
+  </data>
+  <data name="rfvtxtJobTitleEnResource1.Text" xml:space="preserve">
+    <value>&lt;img src='../Images/icon/Exclamation.gif' title='المسمى الوظيفي (En) مطلوب!' /&gt;</value>
+  </data>
+  <data name="btnCancelResource1.Text" xml:space="preserve">
+    <value>إلغاء</value>
+  </data>
+  <data name="lblEmailResource1.Text" xml:space="preserve">
+    <value>البريد الإلكتروني :</value>
+  </data>
+  <data name="lblMobileResource1.Text" xml:space="preserve">
+    <value>رقم الجوال :</value>
+  </data>
+  <data name="LitEmailResource1.Text" xml:space="preserve">
+    <value>*</value>
+  </data>
+  <data name="rfvtxtEmailResource1.Text" xml:space="preserve">
+    <value>&lt;img src='../Images/icon/Exclamation.gif' title='البريد الإلكتروني مطلوب!' /&gt;</value>
+  </data>
+  <data name="rvEmailIDCorrectResource1.ErrorMessage" xml:space="preserve">
+    <value>أدخل بريد إلكتروني صحيح</value>
+  </data>
+  <data name="rvEmailIDCorrectResource1.Text" xml:space="preserve">
+    <value>&lt;img src='../Images/icon/Exclamation.gif' title='أدخل بريد إلكتروني صحيح' /&gt;</value>
+  </data>
+  <data name="rvEmpNameEnResource1.Text" xml:space="preserve">
+    <value>&lt;img src='../Images/icon/Exclamation.gif' title='اسم الموظف (En) مطلوب!' /&gt;</value>
+  </data>
+  <data name="lblSectionsResource1.Text" xml:space="preserve">
+    <value>الجهة :</value>
+  </data>
+  <data name="litSecIDResource1.Text" xml:space="preserve">
+    <value>*</value>
+  </data>
+  <data name="rfvSecIDResource1.Text" xml:space="preserve">
+    <value>&lt;img src='../Images/icon/Exclamation.gif' title='الجهة مطلوبة!' /&gt;</value>
+  </data>
+  <data name="BoundFieldResource1.HeaderText" xml:space="preserve">
+    <value>DocID</value>
+  </data>
+  <data name="BoundFieldResource2.HeaderText" xml:space="preserve">
+    <value>EmpID</value>
+  </data>
+  <data name="BoundFieldResource3.HeaderText" xml:space="preserve">
+    <value>اسم المستند</value>
+  </data>
+  <data name="BoundFieldResource4.HeaderText" xml:space="preserve">
+    <value>مسار المستندد</value>
+  </data>
+  <data name="btnUploadDocResource1.Text" xml:space="preserve">
+    <value>حفظ</value>
+  </data>
+  <data name="imgbtnDeleteResource2.ToolTip" xml:space="preserve">
+    <value>حذف</value>
+  </data>
+  <data name="imgbtnDownloadResource1.ToolTip" xml:space="preserve">
+    <value>تحميل</value>
+  </data>
+  <data name="lblDocNameResource1.Text" xml:space="preserve">
+    <value>اسم المستند :</value>
+  </data>
+  <data name="refUploadFileResource1.ErrorMessage" xml:space="preserve">
+    <value>يجب ان تكون الملفات من نوع jpg ,pdf  </value>
+  </data>
+</root>

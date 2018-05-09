@@ -1,0 +1,89 @@
+﻿.file_input_textbox
+{
+	float: left
+}
+
+.file_input_div
+{
+	position: relative; 
+	width: 60px; 
+	height: 32px; 
+	overflow: hidden;
+}
+
+.file_input_button
+{
+	width: 32px; 
+	height:32px;
+	position: absolute; 
+	top: 0px;
+	background-color: White;
+	color: #FFFFFF;
+	border-style: solid;
+	background-image: url(../Images/icon/UploadImage.png);
+	background-position:center;
+	cursor: pointer;
+	margin: 0 0 0 0;
+	padding:  0px 0px 0px 30px;
+	
+	/*z-index:-1;*/
+}
+
+.file_input_hidden
+{
+    width: 60px; 
+	height:32px;
+	
+	
+	position: absolute;  
+	top: 0px; 
+	left:0px;
+	cursor: pointer;
+	
+    -opacity: 0.5; 
+    -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=50)";
+
+	-filter: alpha(opacity=0);
+	-/*ms-filter: alpha(opacity=0);*/
+	-khtml-opacity: 0; 
+	-moz-opacity: 0;
+    
+	margin: 0 0 0 0;
+	padding:  0px 0px 0px 0px;
+	border-width:0px; 
+    background-color: White;
+	/*visibility:hidden;*/
+	/*z-index:1;*/
+
+      
+
+}
+
+
+#file_browse_wrapper {
+    width: 32px; 
+    height: 32px;
+    background: url(../Images/icon/UploadImage.png) 0 0 no-repeat;
+    border:none;
+    overflow:hidden;
+}
+
+#file_browse_wrapper:hover {
+    background: url(../Images/icon/UploadImage.png) 0 0 no-repeat;
+}
+
+#file_browse_wrapper:active {
+    background: url(../Images/icon/UploadImage.png) 0 0 no-repeat;
+}
+
+#file_browse
+{
+    width: 32px; 
+    height: 32px;
+    margin-left:-145px;
+    -opacity:0.0;
+    -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=0)";
+    -filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=0);
+}
+
+

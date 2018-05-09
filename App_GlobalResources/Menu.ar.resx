@@ -1,0 +1,357 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="btnApprove" xml:space="preserve">
+    <value>موافقة</value>
+  </data>
+  <data name="btnCreate" xml:space="preserve">
+    <value>جديد</value>
+  </data>
+  <data name="btnCreateEmp" xml:space="preserve">
+    <value>جديد (موظف)</value>
+  </data>
+  <data name="btnCreateOther" xml:space="preserve">
+    <value>جديد (آخرون)</value>
+  </data>
+  <data name="btnDelete" xml:space="preserve">
+    <value>حذف</value>
+  </data>
+  <data name="btnFingerPrints" xml:space="preserve">
+    <value>البصمات</value>
+  </data>
+  <data name="btnHistory" xml:space="preserve">
+    <value>السجلات</value>
+  </data>
+  <data name="btnNewMissing" xml:space="preserve">
+    <value>إضافة بطاقة مفقودة</value>
+  </data>
+  <data name="btnPrint" xml:space="preserve">
+    <value>طباعة</value>
+  </data>
+  <data name="btnReturn" xml:space="preserve">
+    <value>إستعادة</value>
+  </data>
+  <data name="btnSearch" xml:space="preserve">
+    <value>بحث</value>
+  </data>
+  <data name="btnSettingCompany" xml:space="preserve">
+    <value>إعدادات المنشأة</value>
+  </data>
+  <data name="btnTemplates" xml:space="preserve">
+    <value>النماذج</value>
+  </data>
+  <data name="btnUpdate" xml:space="preserve">
+    <value>تعديل</value>
+  </data>
+  <data name="btnUpdateEmp" xml:space="preserve">
+    <value>تعديل (موظف)</value>
+  </data>
+  <data name="btnUpdateOthers" xml:space="preserve">
+    <value>تعديل (آخرون)</value>
+  </data>
+  <data name="btnUpdMissing" xml:space="preserve">
+    <value>تعديل بطاقة مفقودة</value>
+  </data>
+  <data name="btnRecipient" xml:space="preserve">
+    <value>تسليم </value>
+  </data>
+  <data name="btnHome" xml:space="preserve">
+    <value>البداية</value>
+  </data>
+  <data name="btnChangPassword" xml:space="preserve">
+    <value>تغيير كلمة المرور</value>
+  </data>
+  <data name="btnChangLang" xml:space="preserve">
+    <value>تغيير اللغة الافتراضية</value>
+  </data>
+  <data name="btnSignImg" xml:space="preserve">
+    <value>توقيع المدير</value>
+  </data>
+  <data name="btnStampImg" xml:space="preserve">
+    <value>صورة الختم</value>
+  </data>
+  <data name="btnEmailConfig" xml:space="preserve">
+    <value>إعدادات البريد الإلكتروني</value>
+  </data>
+  <data name="litRole" xml:space="preserve">
+    <value>مجموعات الصلاحيات</value>
+  </data>
+  <data name="litSearch" xml:space="preserve">
+    <value>السجلات</value>
+  </data>
+  <data name="litUsers" xml:space="preserve">
+    <value>المستخدمون</value>
+  </data>
+  <data name="litEmpFP" xml:space="preserve">
+    <value>البصمات</value>
+  </data>
+  <data name="litEmployees" xml:space="preserve">
+    <value>الموظفين</value>
+  </data>
+  <data name="litCards" xml:space="preserve">
+    <value>البطاقات</value>
+  </data>
+  <data name="litCardsMissing" xml:space="preserve">
+    <value>البطاقات المفقودة</value>
+  </data>
+  <data name="litContractingCompanies" xml:space="preserve">
+    <value>الشركات  المتعاقدة</value>
+  </data>
+  <data name="litContractors" xml:space="preserve">
+    <value>العقود</value>
+  </data>
+  <data name="litDepartment" xml:space="preserve">
+    <value>الأقسام</value>
+  </data>
+  <data name="litHome" xml:space="preserve">
+    <value>البداية</value>
+  </data>
+  <data name="litIssueState" xml:space="preserve">
+    <value>الإصدارات</value>
+  </data>
+  <data name="litNationality" xml:space="preserve">
+    <value>الجنسيات</value>
+  </data>
+  <data name="litPhoLic" xml:space="preserve">
+    <value>رخص التصوير</value>
+  </data>
+  <data name="litSection" xml:space="preserve">
+    <value>الجهات الوظيفية</value>
+  </data>
+  <data name="litSetting" xml:space="preserve">
+    <value>الإعدادات</value>
+  </data>
+  <data name="litVisitorsCards" xml:space="preserve">
+    <value>بطاقات الزوار</value>
+  </data>
+  <data name="litVehicleLic" xml:space="preserve">
+    <value>تصاريح المركبات</value>
+  </data>
+  <data name="btnSMSConfig" xml:space="preserve">
+    <value>إعدادت الرسائل القصيرة</value>
+  </data>
+  <data name="btnCardSearch" xml:space="preserve">
+    <value>بحث البطاقات</value>
+  </data>
+  <data name="btnRecipientCardHistory" xml:space="preserve">
+    <value>بحث البطاقات المستلمة</value>
+  </data>
+  <data name="litBranches" xml:space="preserve">
+    <value>الفروع</value>
+  </data>
+  <data name="litColleges" xml:space="preserve">
+    <value>الكليات</value>
+  </data>
+  <data name="litCollegesOfficer" xml:space="preserve">
+    <value>كلية/عمادة/إدارة عامة</value>
+  </data>
+  <data name="litManagements" xml:space="preserve">
+    <value>الإدارات</value>
+  </data>
+  <data name="litDivisions" xml:space="preserve">
+    <value>الشعب</value>
+  </data>
+  <data name="litDivisionsOfficer" xml:space="preserve">
+    <value>الوحدات</value>
+  </data>
+  <data name="litRanksAcademy" xml:space="preserve">
+    <value>المراتب الأكاديمية</value>
+  </data>
+  <data name="litPlaceIssuanceIdentity" xml:space="preserve">
+    <value>أماكن إصدار الهوية</value>
+  </data>
+  <data name="litJobTitles" xml:space="preserve">
+    <value>المسميات الوظيفية</value>
+  </data>
+  <data name="litRanksJob" xml:space="preserve">
+    <value>المراتب الوظيفية</value>
+  </data>
+  <data name="btnCardValidityPeriod" xml:space="preserve">
+    <value>مدة صلاحية البطاقة</value>
+  </data>
+  <data name="btnCancelled" xml:space="preserve">
+    <value>إلغاء</value>
+  </data>
+  <data name="litPatients" xml:space="preserve">
+    <value>المرضى</value>
+  </data>
+  <data name="litReports" xml:space="preserve">
+    <value>التقارير</value>
+  </data>
+  <data name="btnReports" xml:space="preserve">
+    <value>التقارير</value>
+  </data>
+  <data name="btnCardPrint" xml:space="preserve">
+    <value>طباعة بطاقة</value>
+  </data>
+  <data name="btnLable1Print" xml:space="preserve">
+    <value>Lable 1 طباعة</value>
+  </data>
+  <data name="btnLable2Print" xml:space="preserve">
+    <value>Lable 2 طباعة</value>
+  </data>
+  <data name="btnPatientSearch" xml:space="preserve">
+    <value>بحث المرضى</value>
+  </data>
+  <data name="litCompanies" xml:space="preserve">
+    <value>الشركات</value>
+  </data>
+  <data name="btnEmployeeSearch" xml:space="preserve">
+    <value>بحث الموظفين</value>
+  </data>
+  <data name="btnCardPrintSK" xml:space="preserve">
+    <value>طباعة بطاقة طلاب (المدينة الطبية)</value>
+  </data>
+  <data name="btnCardPrintSO" xml:space="preserve">
+    <value>طباعة بطاقة طلاب (كليات)</value>
+  </data>
+  <data name="btnImport" xml:space="preserve">
+    <value>استيراد</value>
+  </data>
+  <data name="litVisitors" xml:space="preserve">
+    <value>المناسبات</value>
+  </data>
+  <data name="btnImportImages" xml:space="preserve">
+    <value>استيراد الصور</value>
+  </data>
+  <data name="litBlackList" xml:space="preserve">
+    <value>القائمة السوداء</value>
+  </data>
+  <data name="LitEmpContractor" xml:space="preserve">
+    <value>متعاقد شركة</value>
+  </data>
+  <data name="LitEmpEmployee" xml:space="preserve">
+    <value>الجهات الخارجية</value>
+  </data>
+  <data name="litEmpManager" xml:space="preserve">
+    <value>موظف أرامكو</value>
+  </data>
+  <data name="LitStickerCar" xml:space="preserve">
+    <value>ملصقات السيارت</value>
+  </data>
+  <data name="LitEmpType" xml:space="preserve">
+    <value>نوع الموظف</value>
+  </data>
+  <data name="litSectionsExternal" xml:space="preserve">
+    <value>الجهات الخارجية</value>
+  </data>
+  <data name="btnAfis" xml:space="preserve">
+    <value>التحقق</value>
+  </data>
+</root>

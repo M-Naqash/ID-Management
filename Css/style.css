@@ -1,0 +1,169 @@
+BODY {
+	FONT-FAMILY: Verdana, Arial, Helvetica, sans-serif;
+	FONT-SIZE: 11px;
+	COLOR: #000000;
+	BACKGROUND-COLOR: #FFFFFF;
+	MARGIN: 0;
+	PADDING: 0;
+	background-image:url(../images/Page_BG_btm.gif);
+	background-position:bottom left;
+	background-repeat:repeat-x;
+	
+}
+DIV {
+	FONT-SIZE: 11px;
+}
+TD {
+	FONT-SIZE: 11px;
+}
+HR {
+	HEIGHT: 1px;
+	COLOR: #C6C7C7;
+}
+FORM {
+	MARGIN: 0px;
+}
+INPUT {
+	FONT-FAMILY: Verdana, Arial, Helvetica, sans-serif;
+	FONT-SIZE: 11px;
+}
+SELECT {
+	FONT-FAMILY: Verdana, Arial, Helvetica, sans-serif;
+	FONT-SIZE: 11px;
+}
+TEXTAREA {
+	FONT-FAMILY: Verdana, Arial, Helvetica, sans-serif;
+	FONT-SIZE: 11px;
+	COLOR: #000000;
+	BORDER: 1px solid #000000;
+}
+
+/*==============================================================================================*/
+
+/* HEADER STYLES */
+
+.HeaderBG {
+	background-image:url(../images/HeaderCenterImage.gif);
+	background-position:left top;
+	background-repeat:repeat-x;
+	height:62px;
+	position:absolute;
+	
+}
+
+.HeaderText
+{
+	font-family:Arial, Helvetica, sans-serif;
+	font-size:16px;
+	color:#FFFFFF;
+	text-align:left;
+	font-weight:bold;
+}
+.HeaderTextOrange
+{
+	font-family:Arial, Helvetica, sans-serif;
+	font-size:16px;
+	color:#e6ff0f;
+	text-align:left;
+	font-weight:bold;
+}
+/*==============================================================================================*/
+
+/* Body STYLES */
+
+.BodyRightPanel
+{
+	width:250px;
+	background-color:#ebf3fd;
+	border-top:1px solid #09407e;
+	padding:10px 8px 0px 8px;
+	vertical-align:top;
+	height:510px;
+	overflow:scroll;
+}
+
+.RightBox
+{
+	background-color:#f3f7fc;
+	border:1px solid #09407e;
+	padding:1px;
+	height:100px;
+	vertical-align:top;
+	
+}
+
+.RightBoxTitle
+{
+	font-family:Arial, Helvetica, sans-serif;
+	font-size:13px;
+	color:#175e93;
+	text-align:left;
+	font-weight:bold;
+	vertical-align:top;
+	padding-bottom:6px;
+}
+.BodyLeftPanel
+{
+	
+	vertical-align:top;
+	height:510px;
+	overflow:scroll;
+	text-align:left;
+	border-top:1px solid #09407e;
+	
+}
+
+/*==============================================================================================*/
+
+/* Buttons STYLES */
+
+.OrangeBt
+{
+	
+	background-image:url(../images/orangeBG.gif);
+	background-position:top left;
+	background-repeat:no-repeat;
+	color:#ffffff;
+	font-family:Arial, Helvetica, sans-serif;
+	font-size:12px;
+	text-align:center;
+	height:17px;
+	width:23px;
+	vertical-align:top;
+	margin:1px;
+}
+
+
+.GreenBt
+{
+	
+	
+	background-image:url(../images/greeBG.gif);
+	background-position:top left;
+	background-repeat:no-repeat;
+	color:#ffffff;
+	font-family:Arial, Helvetica, sans-serif;
+	font-size:11px;
+	text-align:center;
+	height:17px;
+	width:23px;
+	vertical-align:baseline;
+	padding-top:2px;
+
+}
+
+.blueBt
+{
+	
+	background-image:url(../images/blueBG.gif);
+	background-position:top left;
+	background-repeat:no-repeat;
+	color:#ffffff;
+	font-family:Arial, Helvetica, sans-serif;
+	font-size:12px;
+	text-align:center;
+	height:17px;
+	width:23px;
+	vertical-align:top;
+	margin:1px;
+}

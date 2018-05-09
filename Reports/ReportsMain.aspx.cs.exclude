@@ -1,0 +1,643 @@
+﻿using System;
+using System.Collections;
+using System.Configuration;
+using System.Data;
+using System.Linq;
+using System.Web;
+using System.Web.Security;
+using System.Web.UI;
+using System.Web.UI.HtmlControls;
+using System.Web.UI.WebControls;
+using System.Web.UI.WebControls.WebParts;
+using System.Xml.Linq;
+using System.Text;
+using System.Globalization;
+using System.IO;
+using System.Collections.Generic;
+using Stimulsoft.Report;
+using Stimulsoft.Report.Components;
+using Stimulsoft.Report.Web;
+using System.Data.SqlClient;
+using Stimulsoft.Report.Dictionary;
+
+public partial class Reports_ReportsMain : BasePage
+{
+    /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    ReportPro ProClass = new ReportPro();
+    ReportSql SqlClass = new ReportSql();
+    /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    protected void Page_Load(object sender, EventArgs e)
+    {
+        //---Common Code ----------------------------------------------------------------- //
+        string Type = (Request.QueryString["ID"] != null) ? Request.QueryString["ID"] : "";
+        FormSession.FillSession("Reports",pageDiv);
+        //---Common Code ----------------------------------------------------------------- //
+        
+        if (!IsPostBack)
+        {
+            if (!FormSession.PermUsr.Contains("Reports")) { Response.Redirect(@"~/Login.aspx"); }
+            MainMasterPage.ShowTitel(General.Msg("Reports", "التقارير"));
+            lblSelectedreport.Text = General.Msg("Please select Report","من فضلك اختر التقرير");
+            
+            FillReportsGroups();
+
+            FillCreatedBy();
+            FillPrintedBy();
+            FillNationality();
+            FillIssue();
+        }
+    }
+    /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    
+    /*#############################################################################################################################*/
+    /*#############################################################################################################################*/
+    #region Reports Groups Events
+    
+    private void FillReportsGroups()
+    {
+        DataTable GDT = DBFun.FetchData(" SELECT * FROM ReportGroup ORDER BY RgpID ");
+        if (!DBFun.IsNullOrEmpty(GDT))
+        {
+            foreach (DataRow DR in GDT.Rows)
+            {
+                if (FormSession.getPerm(new string[] { "Rep" + DR["RgpID"] })) 
+                { 
+                    ListItem _liReport = new ListItem(DR["RgpName" + FormSession.Language].ToString(), DR["RgpID"].ToString());
+                    lstReportsGroups.Items.Add(_liReport);
+                } 
+            }
+        }
+    }
+    /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    protected void lstReportsGroups_SelectedIndexChanged(object sender, EventArgs e)
+    {
+        Clear();
+
+        lstReport.Items.Clear();
+        lblSelectedreport.Text = General.Msg("Please select Report","من فضلك اختر التقرير");
+
+        StiWebViewerFx1.Report = null;
+        btnEditReport.Enabled = btnSetAsDefault.Enabled = btnViewreport.Enabled = false;
+        pnlDateFromTo.Visible = pnlEmployee.Visible = false;
+        pnlCreatedBy.Visible  = rvCreatedBy.Enabled  = false;
+        pnlPrintedBy.Visible  = rvPrintedBy.Enabled  = false;
+        pnlVendor.Visible  = cvVendor.Enabled  = false;
+        pnlNationality.Visible = false;
+        pnlIssue.Visible  = rvIssue.Enabled  = false;
+        pnlRegion.Visible = rvRegion.Enabled = false;
+
+        UpdatePanel1.Update();
+
+        if (lstReportsGroups.SelectedIndex > -1)
+        {
+            string RgpID = lstReportsGroups.SelectedValue;
+
+            DataTable RepDT = DBFun.FetchData(" SELECT * FROM Report WHERE RgpID = " + RgpID + "");
+            if (!DBFun.IsNullOrEmpty(RepDT))
+            {
+                FillReports(RgpID);
+            }
+        }
+
+         UpdatePanel1.Update();
+    }
+    /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    private void FillReports(string RgpID)
+    {
+        DataTable RepDT = DBFun.FetchData(" SELECT * FROM Report WHERE RepVisible = 'True' AND RgpID = " + RgpID + "");
+        if (!DBFun.IsNullOrEmpty(RepDT))
+        {
+            foreach (DataRow DR in RepDT.Rows)
+            {
+                ListItem _liReport = new ListItem(DR["RepName" + FormSession.Language].ToString(), DR["RepID"].ToString());
+                lstReport.Items.Add(_liReport);
+            }
+        }
+    }
+
+    #endregion
+    /*#############################################################################################################################*/
+    /*#############################################################################################################################*/
+    
+    /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    private void FillPerm()
+    {
+        btnEditReport.Enabled   = FormSession.getPerm("ReptEdit");
+        btnSetAsDefault.Enabled = FormSession.getPerm("RepSetToDef");
+        btnExport.Enabled       = FormSession.getPerm("ReptUpload");
+    }
+    /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    private void FillCreatedBy()
+    {
+        DataTable DT = new DataTable();   
+        DT = DBFun.FetchData("SELECT DISTINCT CreatedBy FROM ActionByView WHERE CreatedBy IS NOT NULL");
+
+        if (!DBFun.IsNullOrEmpty(DT)) 
+        { 
+            FormCtrl.PopulateDDL(ddlCreatedBy, DT, "CreatedBy", "CreatedBy", General.Msg("-Select Created By-", "-اختر إنشاء بواسطة-")); 
+            rvCreatedBy.InitialValue = ddlCreatedBy.Items[0].Text;
+        }
+    }
+    /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    private void FillPrintedBy()
+    {
+        DataTable DT = new DataTable();   
+        DT = DBFun.FetchData("SELECT DISTINCT PrintedBy FROM ActionByView WHERE PrintedBy IS NOT NULL");
+
+        if (!DBFun.IsNullOrEmpty(DT)) 
+        { 
+            FormCtrl.PopulateDDL(ddlPrintedBy, DT, "PrintedBy", "PrintedBy", General.Msg("-Select Printed By-", "-اختر طباعة بواسطة-")); 
+            rvPrintedBy.InitialValue = ddlPrintedBy.Items[0].Text;
+        }
+    }
+    /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    private void FillNationality()
+    {
+        DataTable DT = new DataTable();   
+        DT = DBFun.FetchData("SELECT DISTINCT " + General.Msg("Nationality", "Nationality_Arabic")  + " AS Nationality FROM EmployeeMaster");
+
+        if (!DBFun.IsNullOrEmpty(DT)) 
+        { 
+            FormCtrl.PopulateDDL2(ddlNationality, DT, "Nationality", "Nationality", General.Msg("All Nationalities", "كل الجنسيات")); 
+        }
+    }
+    /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    private void FillIssue()
+    {
+        DataTable DT = new DataTable();   
+        DT = DBFun.FetchData("SELECT * FROM IssueState");
+
+        if (!DBFun.IsNullOrEmpty(DT)) 
+        { 
+            FormCtrl.PopulateDDL(ddlIssue, DT, "IsName", "IsID", General.Msg("-Select Issue-", "-اختر الإصدار-")); 
+            rvIssue.InitialValue = ddlIssue.Items[0].Text;
+        }
+    }
+    /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    private void FillRegion(DropDownList ddl)
+    {
+        ddl.Items.Clear();
+        ListItem ls = new ListItem(General.Msg("-Select Region-", "-اختر المنطقة-"), "0");  /***/ ddl.Items.Add(ls);
+        ls = new ListItem(General.Msg("All", "الكل"), "A");       /***/ ddl.Items.Add(ls);
+        ls = new ListItem(General.Msg("Jubail", "الجبيل"), "J");  /***/ ddl.Items.Add(ls);
+        ls = new ListItem(General.Msg("Yanbu", "ينبع"), "Y");     /***/ ddl.Items.Add(ls);
+    }
+    /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    public bool CheckBitWise(int panelPermission, int permission) { if ((panelPermission | permission) == panelPermission) { return true; } else { return false; } }
+    /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    protected void lstReport_SelectedIndexChanged(object sender, EventArgs e)
+    {
+        Clear();
+
+        StiWebViewerFx1.Report = null;
+        btnEditReport.Enabled = btnSetAsDefault.Enabled = btnViewreport.Enabled = false;
+
+        //UpdatePanel1.Update();
+
+        if (lstReport.SelectedIndex > -1)
+        {
+            string RepID = lstReport.SelectedValue;
+            string reportTitel = lstReport.SelectedItem.ToString();
+            lblSelectedreport.Text = General.Msg("Report Selected : " + reportTitel,"التقرير المحدد : " + reportTitel );
+
+            DataTable RepDT = DBFun.FetchData(" SELECT * FROM Report WHERE  RepID = '" + RepID + "'");
+            if (!DBFun.IsNullOrEmpty(RepDT))
+            {
+                //RepDT.Rows[0]["RepID"].ToString()
+                ViewState["RepID"]          = RepID;
+                ViewState["ReportNameEn"]   = RepDT.Rows[0]["RepNameEn"].ToString();
+                ViewState["ReportNameAr"]   = RepDT.Rows[0]["RepNameAr"].ToString();
+                ViewState["pnlPermissions"] = Convert.ToInt32(RepDT.Rows[0]["RepPanels"]);
+
+                int pnlPermissions    = Convert.ToInt32(RepDT.Rows[0]["RepPanels"]);
+                pnlDateFromTo.Visible = CheckBitWise(pnlPermissions, 2);
+                pnlEmployee.Visible   = CheckBitWise(pnlPermissions, 16);
+                
+                pnlCreatedBy.Visible  = rvCreatedBy.Enabled  = CheckBitWise(pnlPermissions, 32);
+                //pnlModifiedBy.Visible = rvModifiedBy.Enabled = CheckBitWise(pnlPermissions, 64);
+                pnlPrintedBy.Visible  = rvPrintedBy.Enabled  = CheckBitWise(pnlPermissions, 128);
+                //pnlCompany.Visible    = rvCompany.Enabled    = CheckBitWise(pnlPermissions, 256);
+                
+                pnlVendor.Visible  = cvVendor.Enabled  = CheckBitWise(pnlPermissions, 512);
+                pnlNationality.Visible = CheckBitWise(pnlPermissions, 1024);
+                pnlIssue.Visible  = rvIssue.Enabled  = CheckBitWise(pnlPermissions, 2048);
+                pnlRegion.Visible = rvRegion.Enabled = CheckBitWise(pnlPermissions, 4096);
+                pnlAgreement.Visible = cvAgreement.Enabled = CheckBitWise(pnlPermissions, 8192);
+
+                if (RepID.Trim() == "Rep022") { lblAllAgreement.Visible = true; } else { lblAllAgreement.Visible = false; }
+
+                FillPerm();
+
+                btnViewreport.Enabled = true;
+            }
+        }
+    }
+    /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    private void Clear()
+    {
+        calStartDate.ClearDate();
+        calEndDate.ClearDate();
+        
+        ddlIDSearch.SelectedIndex = -1;
+        txtIDSearch.Text = "";
+        txtVendor.Text = "";
+
+        ddlNationality.SelectedIndex = -1;
+        ddlIssue.SelectedIndex = -1;
+        ddlRegion.SelectedIndex = -1;
+        ddlCreatedBy.SelectedIndex = ddlModifiedBy.SelectedIndex = ddlPrintedBy.SelectedIndex = -1;
+        txtAgreementNo.Text = "";
+    }
+    /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    protected void btnViewreport_Click(object sender, EventArgs e)
+    {
+        if (!Page.IsValid)
+        {
+            ValidatorCollection ValidatorColl = Page.Validators;
+            for (int k = 0; k < ValidatorColl.Count; k++)
+            {
+                if (!ValidatorColl[k].IsValid && !String.IsNullOrEmpty(ValidatorColl[k].ErrorMessage)) { vsView.ShowSummary = true; return; }
+                vsView.ShowSummary = false;
+            }
+            return;
+        }
+
+        try
+        {
+            ShowReport();
+        }
+        catch (Exception e1) { }
+    }
+    /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    protected void ShowReport()
+    {
+        StiWebViewerFx1.Report = null;
+
+        if (lstReport.SelectedIndex < 0) { return; }
+        string RepID = lstReport.SelectedValue;
+
+        string RepTemp = "";
+        DataTable RepDT = DBFun.FetchData(" SELECT * FROM Report WHERE RepID = '" + RepID + "'");
+        if (!DBFun.IsNullOrEmpty(RepDT))
+        {
+            RepTemp = RepDT.Rows[0]["RepTemp" + FormSession.Language].ToString();
+            string RepOrientation = RepDT.Rows[0]["RepOrientation"].ToString();
+            ViewState["RepOrientation"] = RepDT.Rows[0]["RepOrientation"].ToString();
+           
+            StiReport StiRep = new StiReport();
+            StiRep.LoadFromString(RepTemp);
+            StiRep.Dictionary.Databases.Clear();
+            StiRep.Dictionary.Databases.Add(new Stimulsoft.Report.Dictionary.StiSqlDatabase("Connection", General.ConnString));
+            StiRep.GetSubReport += new StiGetSubReportEventHandler(rep_GetSubReport);
+            StiRep.Dictionary.Synchronize();
+            StiRep.Compile();
+
+            /////// Fill Parameters to Report
+            System.Threading.Thread.CurrentThread.CurrentCulture = new System.Globalization.CultureInfo("en-US");
+
+            if (pnlDateFromTo.Visible) 
+            { 
+                StiRep["ParamDateFrom"] = DateFun.GetGregDateTime(calStartDate.getDate(),'S',"F");
+                StiRep["ParamDateTo"]   = DateFun.GetGregDateTime(calEndDate.getDate(), 'S',"T");
+            }
+
+            if (pnlEmployee.Visible)   { StiRep["EmpID"]      = ViewState["EmpID"].ToString(); }
+            if (pnlCreatedBy.Visible)  { StiRep["CreatedBy"]  = ddlCreatedBy.SelectedValue; }
+            //if (pnlModifiedBy.Visible) { StiRep["ModifiedBy"] = ddlModifiedBy.SelectedValue; }
+            if (pnlPrintedBy.Visible)  { StiRep["PrintedBy"]  = ddlPrintedBy.SelectedValue; }
+            //if (pnlCompany.Visible)    { StiRep["CompanyID"]  = Convert.ToInt32(ddlCompany.SelectedValue); }
+            
+            if (pnlVendor.Visible) { StiRep["VendorNo"] = txtVendor.Text; }
+            if (pnlNationality.Visible) { StiRep["Nationality"] = ddlNationality.SelectedValue; }
+            if (pnlIssue.Visible) { StiRep["IssueID"] = Convert.ToInt32(ddlIssue.SelectedValue); }
+            if (pnlRegion.Visible) { StiRep["Region"] = ddlRegion.SelectedValue; }
+            if (pnlAgreement.Visible) { StiRep["AgreementNo"] = txtAgreementNo.Text; }
+
+            StiRep["LoginID"] = FormSession.LoginUsr;
+
+            StiRep.Render();
+            StiWebViewerFx1.Report = StiRep;
+        }
+    }
+    /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    protected void rep_GetSubReport(object sender, StiGetSubReportEventArgs e)
+    {
+        string RepOrientation = ViewState["RepOrientation"].ToString();
+             
+        StiReport HRep = new StiReport();
+       
+        DataTable HDT = DBFun.FetchData(" SELECT * FROM Report WHERE RepType = 'Header' AND RepOrientation ='" + RepOrientation + "'");
+        if (!DBFun.IsNullOrEmpty(HDT))
+        {
+            string RepHeader = HDT.Rows[0]["RepTemp" + FormSession.Language].ToString();
+            
+            if (e.SubReportName == "SubReport1") { HRep.LoadFromString(RepHeader); }
+
+            HRep.Dictionary.Databases.Clear();
+            HRep.Dictionary.Databases.Add(new Stimulsoft.Report.Dictionary.StiSqlDatabase("Connection", General.ConnString));
+            e.Report = HRep;  
+        }
+    }
+    /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    
+    /*#############################################################################################################################*/
+    /*#############################################################################################################################*/
+    #region Report Events
+    
+    protected void btnSetAsDefault_Click(object sender, EventArgs e)
+    {
+        try
+        {
+            if (lstReport.SelectedIndex < 0) { return; }
+            string RepID = lstReport.SelectedValue;
+
+            DataTable RepDT = DBFun.FetchData(" SELECT * FROM Report WHERE RepID = '" + RepID + "'");
+            if (!DBFun.IsNullOrEmpty(RepDT))
+            {
+                string repStr = RepDT.Rows[0]["RepTempDef" + FormSession.Language].ToString();
+
+                ProClass.RepID      = RepID;
+                ProClass.RepTemp    = repStr;
+                ProClass.Lang       = FormSession.Language;
+                ProClass.ModifiedBy = FormSession.LoginUsr;
+                //ProClass.ModifiedDate = DateTime.Now.ToString("dd/MM/yyyy");
+
+                SqlClass.UpdateTemplate(ProClass);
+            }
+        }
+        catch (Exception e1) { }
+    }
+    /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    protected void btnUploadReport_Click(object sender, EventArgs e)
+    {
+        //try
+        //{
+        //    string type = fileUpload.PostedFile.ContentType.ToString();
+        //    fileUpload.SaveAs(Server.MapPath(@"../Reports/EditedReports/") + fileUpload.FileName);
+        //    fileUpload.SaveAs(Server.MapPath(@"../Reports/DefaultReports/") + fileUpload.FileName);
+        //    Server.Transfer("Reports.aspx");
+        //}
+        //catch (Exception e1) { }
+    }
+    /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    protected void btnExport_Click(object sender, EventArgs e)
+    {
+        //if (lstReport.SelectedIndex > -1) { reportName = lstReport.SelectedValue; } 
+        //else if (lstHeaderReport.SelectedIndex > -1) { reportName = lstHeaderReport.SelectedValue; } 
+        //else { return; }
+
+        //string sourceFilename = string.Empty;
+        //string destinationFilename = string.Empty;
+        //sourceFilename = Server.MapPath(@"..\Reports\EditedReports\" + FormSession.Language + "\\") + reportName + "";
+        //destinationFilename = "attachment; filename=" + reportName;
+        //Response.ContentType = "text/plain";
+        //Response.AppendHeader("Content-Disposition", destinationFilename);
+        //Response.TransmitFile(sourceFilename);
+        //Response.End();
+    }
+    /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////  
+    protected void btnEditReport_Click(object sender, EventArgs e)
+    {
+        try
+        {
+            if (lstReport.SelectedIndex < 0) { return; }  //ShowMsg("Please Select Report to edit it", "رجاء حدد تقرير للتعديل");
+        
+            string RepID = lstReport.SelectedValue;
+            DataTable RepDT = DBFun.FetchData(" SELECT * FROM Report WHERE RepID = '" + RepID + "'");
+            if (!DBFun.IsNullOrEmpty(RepDT))
+            {
+                string repStr = RepDT.Rows[0]["RepTemp" + FormSession.Language].ToString();
+                if (string.IsNullOrEmpty(repStr)) { return; }
+                
+                StiReport report = new StiReport();
+                report.LoadFromString(repStr);
+                report.Dictionary.Databases.Clear();
+                report.Dictionary.Databases.Add(new StiSqlDatabase("Connection", General.ConnString));
+                report.Dictionary.Synchronize();
+                report.Compile();
+                StiWebDesigner1.Design(report);
+                ////this.InvokeRefreshPreview();
+            }
+        }
+        catch (Exception ex) { }
+    }
+    
+    #endregion
+    /*#############################################################################################################################*/
+    /*#############################################################################################################################*/
+    
+    /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////// 
+    
+    /*#############################################################################################################################*/
+    /*#############################################################################################################################*/
+    #region StiWeb Events
+    
+    protected void StiWebDesigner1_PreInit(object sender, StiWebDesigner.StiPreInitEventArgs e)
+    {
+        e.WebDesigner.Localization =  FormSession.Language;
+    }
+    /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    protected void StiWebViewerFx1_PreInit(object sender, Stimulsoft.Report.WebFx.StiWebViewerFx.StiPreInitEventArgs e)
+    {
+        StiWebViewerFx1.Localization = FormSession.Language;
+    }
+    /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    protected void StiWebDesigner1_SaveReport(object sender, StiWebDesigner.StiSaveReportEventArgs e)
+    {
+        try
+        {
+            if (lstReport.SelectedIndex < 0) { return; }  //ShowMsg("Please Select Report to edit it", "رجاء حدد تقرير للتعديل");
+        
+            string RepID = lstReport.SelectedValue;
+            StiReport report = e.Report;
+            string repStr    = e.Report.SaveToString().ToString();
+
+            ProClass.RepID      = RepID;
+            ProClass.RepTemp    = repStr;
+            ProClass.Lang       = FormSession.Language;
+            ProClass.ModifiedBy = FormSession.LoginUsr;
+            //ProClass.ModifiedDate = DateTime.Now.ToString("dd/MM/yyyy");
+
+            SqlClass.UpdateTemplate(ProClass);
+            //ShowMsg("Report Updated Successfully", "تم تحديث التقرير بنجاح");
+        }
+        catch (Exception e1)
+        {
+            //ShowMsg("Transaction failed to commit please contact your administrator", "النظام غير قادر على رفع التقرير, الرجاء الاتصال بمدير النظام");
+        }
+    }
+
+    #endregion
+    /*#############################################################################################################################*/
+    /*#############################################################################################################################*/
+    
+    /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////// 
+    
+    /*#############################################################################################################################*/
+    /*#############################################################################################################################*/
+    #region Custom Validate Events
+    
+    protected void ShowMsg_ServerValidate(Object source, ServerValidateEventArgs e) { e.IsValid = false; }
+    /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    protected void Date_ServerValidate(Object source, ServerValidateEventArgs e)
+    {
+        try
+        {
+            if (pnlDateFromTo.Visible)
+            {
+                if (source.Equals(cvStartDate)) { if (string.IsNullOrEmpty(calStartDate.getDate())) { e.IsValid = false; } else { e.IsValid = true; } }
+                if (source.Equals(cvEndDate))   { if (string.IsNullOrEmpty(calEndDate.getDate()))   { e.IsValid = false; } else { e.IsValid = true; } }
+                if (source.Equals(cvCompareDates))
+                {
+                    try
+                    {
+                        if (!String.IsNullOrEmpty(calStartDate.getDate()) && !String.IsNullOrEmpty(calEndDate.getDate()))
+                        {
+                            int iStartDate = DateFun.ConvertDateTimeToInt(FormSession.DateType, calStartDate.getDate());
+                            int iEndDate   = DateFun.ConvertDateTimeToInt(FormSession.DateType, calEndDate.getDate());
+                            if (iStartDate > iEndDate) { e.IsValid = false; } else { e.IsValid = true; }
+                        }
+                    }
+                    catch
+                    {
+                        e.IsValid = false;
+                    }
+                }
+            }
+        }
+        catch { e.IsValid = false; }
+    }
+    /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    protected void IDSearch_ServerValidate(Object source, ServerValidateEventArgs e)
+    {
+        try
+        {
+            if (source.Equals(cvIDSearch) && pnlEmployee.Visible)
+            {
+                if (string.IsNullOrEmpty(txtIDSearch.Text))
+                {
+                    General.ValidMsg(this, ref cvIDSearch, false, "You must enter a value in the search text", "يجب إدخال قيمة في مربع البحث");
+                    e.IsValid = false;
+                    return;
+                }
+                else
+                {
+                    DataTable DT = new DataTable();
+                    if      (ddlIDSearch.SelectedValue == "EmpID")      { DT = DBFun.FetchData("SELECT EmpID FROM EmployeeMaster WHERE EmpID      = '" + txtIDSearch.Text + "'"); }
+                    else if (ddlIDSearch.SelectedValue == "NationalID") { DT = DBFun.FetchData("SELECT EmpID FROM EmployeeMaster WHERE IdentityNo = '" + txtIDSearch.Text + "'"); }
+                    else if (ddlIDSearch.SelectedValue == "EmpNameEn")  { DT = DBFun.FetchData("SELECT EmpID FROM EmployeeMaster WHERE FullName   = '" + txtIDSearch.Text + "'"); }
+                    else if (ddlIDSearch.SelectedValue == "EmpNameAr")  { DT = DBFun.FetchData("SELECT EmpID FROM EmployeeMaster WHERE ArbName    = '" + txtIDSearch.Text + "'"); }
+
+                    ViewState["EmpID"] = "";
+                    if (DBFun.IsNullOrEmpty(DT))
+                    {
+                        MessageFun.ValidMsg(this, ref cvIDSearch, true, General.Msg("Employee ID does not exist", "رقم الموظف غير موجود"));
+                        e.IsValid = false;
+                        return;
+                    }
+                    else
+                    {
+                        ViewState["EmpID"] = DT.Rows[0]["EmpID"].ToString();
+                    }
+                }
+            }
+        }
+        catch { e.IsValid = false; }
+    }
+    /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    protected void Vendor_ServerValidate(Object source, ServerValidateEventArgs e)
+    {
+        try
+        {
+            if (source.Equals(cvVendor))
+            {
+                if (string.IsNullOrEmpty(txtVendor.Text))
+                {
+                    General.ValidMsg(this, ref cvVendor, false, "Vendor No is required", "رقم المقاول مطلوب");
+                    e.IsValid = false;
+                    return;
+                }
+                else
+                {
+                    string RepID = lstReport.SelectedValue;
+                    if (RepID.Trim() == "Rep022" && txtVendor.Text == "0") { return; }
+                    
+                    DataTable dt = DBFun.FetchData("SELECT VendorNo FROM Vendors WHERE VendorNo = '" + txtVendor.Text + "'");
+                    if (DBFun.IsNullOrEmpty(dt))
+                    {
+                        MessageFun.ValidMsg(this, ref cvVendor, true, General.Msg("Vendor No does not exist", "رقم المقاول غير موجود"));
+                        e.IsValid = false;
+                        return;
+                    }
+                }
+            }
+        }
+        catch { e.IsValid = false; }
+    }
+    /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    protected void Agreement_ServerValidate(Object source, ServerValidateEventArgs e)
+    {
+        try
+        {
+            if (source.Equals(cvAgreement))
+            {
+                if (string.IsNullOrEmpty(txtAgreementNo.Text))
+                {
+                    General.ValidMsg(this, ref cvAgreement, false, "Agreement No is required", "رقم العقد مطلوب");
+                    e.IsValid = false;
+                    return;
+                }
+                else
+                {
+                    string RepID = lstReport.SelectedValue;
+                    if (RepID.Trim() == "Rep022" && txtAgreementNo.Text == "0") { return; }
+
+                    DataTable dt = DBFun.FetchData("SELECT AgreementNo FROM Vendors WHERE AgreementNo = '" + txtAgreementNo.Text + "'");
+                    if (DBFun.IsNullOrEmpty(dt))
+                    {
+                        MessageFun.ValidMsg(this, ref cvAgreement, true, General.Msg("Agreement No does not exist", "رقم العقد غير موجود"));
+                        e.IsValid = false;
+                        return;
+                    }
+                }
+            }
+        }
+        catch { e.IsValid = false; }
+    }
+
+    #endregion
+    /*#############################################################################################################################*/
+    /*#############################################################################################################################*/
+    
+    /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////// 
+}

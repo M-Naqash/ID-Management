@@ -1,0 +1,1134 @@
+
+/* CSS Document */
+
+.BODY
+{
+	font-family:Tahoma;
+	FONT-SIZE: 11px;
+	COLOR: #000000;
+	BACKGROUND-COLOR: #FFFFFF;
+	MARGIN: 0;
+	PADDING: 0;
+	/*background-image:url(../images/body_bg.png);*/
+	background-position:top left;
+	background-repeat:repeat-x;
+	min-height:900px;
+}
+
+
+DIV
+{
+	FONT-SIZE: 11px;
+}
+
+TD
+{
+	FONT-SIZE: 11px;
+	font-family:Tahoma;
+	
+}
+
+HR
+{
+	HEIGHT: 1px;
+	COLOR: #C6C7C7;
+}
+
+FORM
+{
+	MARGIN: 0px;
+}
+
+INPUT
+{
+	font-family:Tahoma;
+	FONT-SIZE: 11px;
+}
+
+SELECT
+{
+	font-family:Tahoma;
+	FONT-SIZE: 11px;
+}
+
+TEXTAREA
+{
+	font-family:Tahoma;
+	FONT-SIZE: 11px;
+	COLOR: #000000;
+	BORDER: 1px solid #000000;
+}
+
+A
+{
+	COLOR: #000000;
+	TEXT-DECORATION: underline;
+}
+
+A:hover
+{
+	COLOR: #000000;
+	TEXT-DECORATION: none;
+}
+/*==============================================================================================*/
+
+/* PAGE LAYOUT */
+
+#Container
+{
+	WIDTH: 100%;
+}
+
+/*==============================================================================================*/
+
+/* HEADER STYLES */
+
+.LogoArea
+{
+	/*background-image:url(../images/logo.gif);*/
+	background-position:right top;
+	background-repeat:no-repeat;
+	width:141px;
+	height:100px;
+	padding-right: 8px;
+	text-align: right;
+}
+
+.HeaderTotal
+{
+	/*background-image:url(../images/bg_heading1.gif);*/
+	
+	background-position:left top;
+	height:250px;
+	background-repeat:repeat-x;
+}
+
+.LoginHeaderTotal
+{
+	/*background-image:url(../images/bg_heading1.gif);*/
+	
+	background-position:left top;
+	height:222px;
+	background-repeat:repeat-x;
+}
+
+
+
+.tdMenuHeader
+{
+    padding-right:9px;
+	text-align: right;
+}
+
+.tdBar
+{
+    padding-left:10px;
+	/*text-align: left;*/
+}
+
+.tdBarlogin
+{
+    padding-left:10px
+}
+
+.HeaderBG
+{
+	/*background-image:url(../images/bg_heading.gif);*/
+	background-position:right top;
+	background-repeat:no-repeat;
+	height: 120px;
+}
+
+TD.Skin
+{
+	FONT-SIZE: 11px;
+	COLOR: #07245a;
+	HEIGHT: 32px;
+	PADDING-LEFT: 0px;
+	PADDING-RIGHT: 0px;
+	VERTICAL-ALIGN:middle;
+}
+
+.Skin A
+{
+	BACKGROUND-IMAGE:url(../images/english_icon.png);
+	BACKGROUND-REPEAT: no-repeat;
+	BACKGROUND-POSITION: left center;
+	PADDING-RIGHT: 0px;
+	color:#12747d;
+	font-family:Tahoma;
+	font-size:13px;
+	TEXT-DECORATION: none;
+}
+
+.Skin A:hover
+{
+	COLOR: #12747d;
+	TEXT-DECORATION: underline;
+}
+
+TD.Pass
+{
+	FONT-SIZE: 11px;
+	COLOR: #07245a;
+	HEIGHT: 32px;
+	PADDING-LEFT: 0px;
+	PADDING-RIGHT: 0px;
+	VERTICAL-ALIGN:middle;
+}
+
+.Pass A
+{
+	background-image: url(../images/Control/ChangePass16.png);
+	BACKGROUND-REPEAT: no-repeat;
+	BACKGROUND-POSITION: right center;
+	/*PADDING-RIGHT: 20px;*/
+	PADDING-LEFT: 0px;
+	color:#12747d;
+	font-family:Tahoma;
+	font-size:13px;
+	TEXT-DECORATION: none;
+	/*height:32px;
+	width :32px;*/
+}
+
+TD.Feedback
+{
+	FONT-SIZE: 11px;
+	COLOR: #07245a;
+	HEIGHT: 17px;
+	PADDING-LEFT: 0px;
+	PADDING-RIGHT: 0px;
+	VERTICAL-ALIGN:middle;
+	
+}
+
+.Feedback A
+{
+	BACKGROUND-IMAGE:url(../images/feedback.gif);
+	BACKGROUND-REPEAT: no-repeat;
+	BACKGROUND-POSITION: left center;
+	PADDING-LEFT: 20px;
+	PADDING-RIGHT: 0px;
+	color:#12747d;
+	font-family:Tahoma;
+	font-size:13px;
+	TEXT-DECORATION: none;
+	height:17px
+	
+}
+
+.Feedback A:hover
+{
+	COLOR: #12747d;
+	TEXT-DECORATION: underline;
+}
+
+TD.MyProfile
+{
+	FONT-SIZE: 11px;
+	COLOR: #07245a;
+	HEIGHT: 17px;
+	PADDING-LEFT: 0px;
+	PADDING-RIGHT: 0px;
+	VERTICAL-ALIGN: middle ;
+}
+
+.MyProfile A
+{
+	BACKGROUND-IMAGE:url(../images/logout16.png);
+	BACKGROUND-REPEAT: no-repeat;
+	BACKGROUND-POSITION: right center;
+	PADDING-LEFT: 20px;
+	PADDING-RIGHT: 0px;
+	color:#12747d;
+	font-family:Tahoma;
+	font-size:13px;
+	TEXT-DECORATION: none;
+	height:17px
+	
+}
+
+.MyProfile A:hover
+{
+	COLOR: #12747d;
+	TEXT-DECORATION: underline;
+}
+TD.Help
+{
+	FONT-SIZE: 11px;
+	COLOR: #07245a;
+	HEIGHT: 17px;
+	PADDING-LEFT: 0px;
+	PADDING-RIGHT: 0px;
+	VERTICAL-ALIGN: middle;
+	
+}
+
+.Help A
+{
+	BACKGROUND-IMAGE:url(../images/helpICON.gif);
+	BACKGROUND-REPEAT: no-repeat;
+	BACKGROUND-POSITION: right center;
+	PADDING-LEFT: 20px;
+	PADDING-RIGHT: 0px;
+	color:#12747d;
+	font-family:Tahoma;
+	font-size:13px;
+	TEXT-DECORATION: none;
+	height:17px
+	
+}
+
+.Help A:hover
+{
+	COLOR: #12747d;
+	TEXT-DECORATION: underline;
+}
+
+TD.Logout
+{
+	FONT-SIZE: 11px;
+	COLOR: #07245a;
+	HEIGHT: 17px;
+	PADDING-LEFT: 0px;
+	PADDING-RIGHT: 0px;
+	VERTICAL-ALIGN:middle;
+	
+}
+
+.Logout A
+{
+	BACKGROUND-IMAGE:url(../images/logout16.png);
+	BACKGROUND-REPEAT: no-repeat;
+	BACKGROUND-POSITION: right center;
+	/*PADDING-RIGHT: 20px;*/
+	PADDING-LEFT: 20px;
+	color:#000000;
+	font-family:Tahoma;
+	font-size:13px;
+	TEXT-DECORATION: none;
+	height:17px
+	
+}
+
+.Logout A:hover
+{
+	COLOR: #000000;
+	TEXT-DECORATION: underline;
+}
+
+/*==============================================================================================*/
+/*TABS Css*/
+/*==============================================================================================*/
+#TabStripBg
+{
+	
+	
+	BACKGROUND-REPEAT: repeat-x;
+	BACKGROUND-POSITION: bottom left; 
+	HEIGHT: 23px;
+	PADDING: 0px 5px 0px 5px;
+}
+
+.ActiveTab
+{
+	FONT-SIZE: 10px;
+	FONT-WEIGHT: bold;
+	COLOR: #ffffff;
+	BACKGROUND-IMAGE: url(../Images/ActiveTab_Bg2.gif);
+	BACKGROUND-REPEAT: repeat-x;
+	BACKGROUND-POSITION: bottom left;
+	HEIGHT: 23px;
+	VERTICAL-ALIGN: middle;
+	MARGIN-RIGHT: 1px;
+	MARGIN-LEFT: 1px;
+	FLOAT: left;
+}
+
+.ActiveTab_Left
+{
+	BACKGROUND-IMAGE: url(../Images/ActiveTab_Left2.gif);
+	BACKGROUND-REPEAT: no-repeat;
+	BACKGROUND-POSITION: bottom right;
+	WIDTH: 10px;
+	HEIGHT: 23px;
+}
+
+.ActiveTab_Right
+{
+	BACKGROUND-IMAGE: url(../Images/ActiveTab_Right2.gif);
+	BACKGROUND-REPEAT: no-repeat;
+	BACKGROUND-POSITION: bottom left;
+	WIDTH: 10px;
+	HEIGHT: 23px;
+}
+
+.ActiveTab A:link
+{
+	COLOR: #ffffff;
+	TEXT-DECORATION: none;
+}
+
+.ActiveTab A:visited
+{
+	COLOR: #ffffff;
+	TEXT-DECORATION: none;
+}
+
+.ActiveTab A:hover
+{
+	COLOR: #000000;
+	TEXT-DECORATION: none;
+}
+
+.NormalTab
+{
+	FONT-SIZE: 10px;
+	FONT-WEIGHT: normal;
+	COLOR: #000000;
+	BACKGROUND-IMAGE: url(../Images/NormalTab_Bg2.gif);
+	BACKGROUND-REPEAT: repeat-x;
+	BACKGROUND-POSITION: bottom left;
+	HEIGHT: 23px;
+	VERTICAL-ALIGN: middle;
+	MARGIN-RIGHT: 1px;
+	MARGIN-LEFT: 1px;
+	FLOAT: left;
+}
+
+.NormalTab_Left
+{
+	BACKGROUND-IMAGE: url(../Images/NormalTab_Left2.gif);
+	BACKGROUND-REPEAT: no-repeat;
+	BACKGROUND-POSITION: bottom right;
+	WIDTH: 10px;
+	HEIGHT: 23px;
+}
+
+.NormalTab_Right
+{
+	BACKGROUND-IMAGE: url(../Images/NormalTab_Right2.gif);
+	BACKGROUND-REPEAT: no-repeat;
+	BACKGROUND-POSITION: bottom left;
+	WIDTH: 10px;
+	HEIGHT: 23px;
+}
+
+.NormalTab A:link
+{
+	COLOR: #000000;
+	TEXT-DECORATION: none;
+}
+
+.NormalTab A:visited
+{
+	COLOR: #000000;
+	TEXT-DECORATION: none;
+}
+
+.NormalTab A:hover
+{
+	COLOR: #9D9D9D;
+	TEXT-DECORATION: none;
+}
+
+
+.TabPadding
+{
+	PADDING-LEFT: 3px;
+	PADDING-RIGHT: 3px;
+	text-align:center;
+}
+
+
+
+TD.Tab_Strip
+{
+	FONT-SIZE: 10px;
+	COLOR: #FFFFFF;
+	HEIGHT: 25px;
+	PADDING-LEFT: 10px;
+	PADDING-RIGHT: 10px;
+	VERTICAL-ALIGN:middle;
+}
+
+.Tab_Strip A
+{
+	BACKGROUND-IMAGE: url(../Images/SmallLeftArrow.gif);
+	BACKGROUND-REPEAT: no-repeat;
+	BACKGROUND-POSITION: left center;
+	PADDING-LEFT: 10px;
+	PADDING-RIGHT: 5px;
+	COLOR: #ffffff;
+	TEXT-DECORATION: none;
+	MARGIN-RIGHT: 4px;
+}
+
+.Tab_Strip A:hover
+{
+	COLOR: #ffffff;
+	TEXT-DECORATION: underline;
+}
+
+A.Tab_Strip_Select 
+{
+	FONT-WEIGHT: bold;
+	COLOR: #ffffff;
+	BACKGROUND-IMAGE: url(../Images/SmallDownArrow.gif);
+	BACKGROUND-REPEAT: no-repeat;
+	BACKGROUND-POSITION: left center;
+	PADDING-LEFT: 10px;
+	PADDING-RIGHT: 5px;
+	TEXT-DECORATION: none;
+	MARGIN-RIGHT: 4px;
+}
+
+A.Tab_Strip_Select :hover
+{
+	COLOR: #ffffff;
+	TEXT-DECORATION: none;
+}
+
+#TabContentArea
+{
+	BACKGROUND-COLOR:#F8F8F8;
+	PADDING: 5px;
+}
+
+#TabContentArea H1
+{
+	FONT-SIZE: 14px;
+	FONT-WEIGHT: bold;
+	COLOR: #336699;
+	MARGIN: 0px 0px 5px 0px;
+	PADDING-BOTTOM: 5px;
+	BORDER-BOTTOM: 1px solid #b3b3b3;
+}
+
+.Required
+{
+	COLOR: RED;
+}
+
+.Red
+{
+	COLOR: #FF0000;
+}
+
+.RedBold
+{
+	FONT-WEIGHT: bold;
+	COLOR: #FF0000;
+}
+/*==============================================================================================*/
+
+
+/*==============================================================================================*/
+/*BODY Css*/
+/*==============================================================================================*/
+
+.Body_TL
+{
+	background-image:url(../images/Body_TR2.gif);
+	background-position:top left;
+	background-repeat:no-repeat;
+	height:29px;
+	width:10px;	
+}
+.Body_TR
+{
+	background-image:url(../images/Body_TL2.gif);
+	background-position:top right;
+	background-repeat:no-repeat;
+	height:29px;
+	width:10px;	
+}
+.Body_T
+{
+	background-image:url(../images/Body_T2.gif);
+	background-position:top left;
+	background-repeat:repeat-x;
+	text-align:left;
+	text-decoration:none;
+	padding:0px 15px 0px 15px;
+	
+	font-weight:bold;
+	color:#000000;
+}
+
+.Body_T a
+{
+	text-align:left;
+	text-decoration:none;
+	padding:0px 15px 0px 15px;
+
+}
+.Body_T a:hover
+{
+	text-align:left;
+	text-decoration:none;
+	padding:0px 15px 0px 15px;
+	font-weight:bold;
+}
+.Body_L
+{
+	background-image:url(../images/Body_R2.gif);
+	background-position:top left;
+	background-repeat:repeat-y;
+	width:10px;	
+}
+.Body_R
+{
+	background-image:url(../images/Body_L2.gif);
+	background-position:top left;
+	background-repeat:repeat-y;
+	width:10px;	
+}
+.Body_BL
+{
+	background-image:url(../images/Body_BR2.gif);
+	background-position:top left;
+	background-repeat:no-repeat;
+	width:10px;
+	height:10px;	
+}
+.Body_BR
+{
+	background-image:url(../images/Body_BL2.gif);
+	background-position:top left;
+	background-repeat:no-repeat;
+	width:10px;
+	height:10px;	
+}
+.Body_B
+{
+	background-image:url(../images/Body_B2.gif);
+	background-position:top left;
+	background-repeat:repeat-x;
+}
+.Body_BG
+{
+	padding:0px;
+	background-color:#ffffff;
+}
+
+.BodyStrip
+{
+	height:28px;
+	text-align:left;
+	background-color:#e9e9e9;
+	border-bottom:#193364 1px solid;
+	/*border-left:#193364 1px solid;*/
+}
+
+.ContantHeader
+{
+	height:22px;
+	background-color:#c1d3ec;
+	border:1px solid #2c66af;
+	font-weight:bold;
+	color:#2c66af;
+	
+}
+.ContantHeader1
+{
+	height:22px;
+	border-bottom:1px solid #2c66af;
+	padding-left:2px;
+	text-align:left ;
+}
+
+.ContantBG
+{
+	border-bottom:1px solid #2c66af;
+	background-color:#ffffff;
+}
+.ContantBottom
+{
+	border-bottom:1px solid #2c66af;
+	background-color:#ffffff;
+	padding:2px;
+	text-align:left ;
+	text-decoration:none;
+	
+}
+.ContantBottom a
+{
+	border-bottom:1px solid #2c66af;
+	background-color:#ffffff;
+	padding:2px;
+	color:#2c66af;
+	text-decoration:none;
+	font-weight:bold
+}
+.ContantBottom a:hover
+{
+	border-bottom:1px solid #2c66af;
+	background-color:#ffffff;
+	padding:2px;
+	text-align:center;
+	font-weight:bold;
+	color:#2c66af;
+		text-decoration:none;
+}
+/*==============================================================================================*/
+
+
+
+/*==============================================================================================*/
+/*FOOTER Css*/
+/*==============================================================================================*/
+.Footer
+{
+
+}
+/*==============================================================================================*/
+
+
+
+
+/*==============================================================================================*/
+/*Side Menu Css*/
+/*==============================================================================================*/
+div.sdmenu1 {
+	background-image:url(../images/LeftHeaderBG2.gif);
+	background-position:top left;
+	background-repeat:repeat-x;
+	height:15px;
+	vertical-align:middle;
+	color:#000000;
+	font-family:Tahoma;
+	text-align:left;	
+}
+
+div.sdmenu1 div {
+	background: url('../images/title2.gif') repeat-x;
+	overflow: hidden;
+	vertical-align:middle;
+	color:#000000;
+	font-family:Tahoma;
+	/*font-weight:bold;*/
+	font-weight:normal;
+	text-align:left;
+	
+}
+div.sdmenu1 div:first-child {
+	background: url('../images/toptitle2.gif') no-repeat;
+	vertical-align:middle;
+	color:#000000;
+	font-family:Tahoma,Verdana, Arial, Helvetica, sans-serif;
+	
+	text-align:left;
+}
+
+div.sdmenu1 div.collapsed {
+	height: 20px;
+}
+
+div.sdmenu1 div span {
+	display: block;
+	font-weight:normal ;
+	color: #000000;
+	background: url('../images/collapsed2.gif') no-repeat left 10px ;
+	background-position:right;
+	cursor: default;
+	text-align:left;
+	font-size:11px;
+	border-right: 1px solid #000000;
+	border-left: 1px solid #000000;
+	padding-left:20px; padding-right:20px; 
+	padding-top:5px; padding-bottom:5px;
+	height:10px;
+}
+
+div.sdmenu1 div.collapsed span {
+	background-image: url('../images/expanded2.gif');
+	background-position:right;
+	
+}
+
+div.sdmenu1 div a {
+	padding: 5px 10px;
+	background: #ffffff;
+	display: block;
+	/*border-bottom: 1px solid #195284;*/
+	color: #000000;
+	text-decoration:none;
+}
+div.sdmenu1 div a.current {
+	background : #ffffff;
+	text-decoration: none;
+}
+div.sdmenu1 div a:hover {
+	background : #DCE7F5 url('') no-repeat left center;
+	color: #000000;
+	text-decoration: none;
+}
+
+.Table_sdmenu1
+{
+    background-color: #000000;
+    border-color:#000000;
+    border-bottom-width: 1px;
+    border-top-width: 1px;
+    
+    border-left-width: 1px;
+    border-right-width: 1px;
+}
+
+.Body_sdmenu1
+{
+	padding:0px;
+	background-color:#ffffff;
+    border-color:#000000;
+}
+/*==============================================================================================*/
+
+
+
+
+/*==============================================================================================*/
+/*Grid Css*/
+/*==============================================================================================*/
+.Grid1Header
+{
+	background-color:#2C66AF;
+	font-weight:bold;
+	text-decoration:none;
+}
+
+.Grid2Header
+{
+background-color:#2972A1;
+font-weight:bold;
+text-decoration:none;
+}
+
+.Grid3Header
+{
+background-color:#5B95BB;
+font-weight:bold;
+text-decoration:none;
+}
+
+.Grid4Header
+{
+background-color:#63A2CA;
+font-weight:bold;
+text-decoration:none;
+}
+.Grid5Header
+{
+background-color:#8FB6CF;
+font-weight:bold;
+text-decoration:none;
+}
+
+.CalenderHeadBG
+{
+	background-color:#9D9D9D;
+	font-family:Tahoma;	
+	color:White;
+}
+/*==============================================================================================*/
+
+.GridColumn
+{
+	font-family:Tahoma;		
+}
+.buttonBG
+{
+	font-family:Tahoma;	
+	background-color:#9D9D9D;
+	color:#ffffff;
+	border:1px solid #9D9D9D;
+	text-align:center;	
+}
+
+.HeaderStyle-ForeColor
+{
+	color:#ffffff;	
+}
+.HeaderStyle-ForeColor1
+{
+	color:#fff;	
+	background-color:#2c66af;
+}
+.GridHyperLink
+{
+	color:#085180;
+	font-family:Verdana;
+	font-size:11px;
+	font-weight:normal;
+}
+
+.MainNav
+{
+	font-size:11px;
+}
+.MainNav_Select
+{
+	font-size:11px;
+}
+
+
+/*================AKP Temp Styles Starts============================*/
+.text
+{
+    FONT-WEIGHT: normal;
+    FONT-SIZE: 11px;
+    COLOR: #000000;
+    FONT-FAMILY: Verdana, Arial, Helvetica, sans-serif;
+    TEXT-DECORATION: none
+}
+.forminput
+{
+    BORDER-RIGHT: #003366 1px solid;
+    BORDER-TOP: #003366 1px solid;
+    FONT-SIZE: 11px;
+    BORDER-LEFT: #003366 1px solid;
+    BORDER-BOTTOM: #003366 1px solid;
+    font-family:Tahoma;
+}
+.sublinks
+{
+    FONT-WEIGHT: normal;
+    FONT-SIZE: 11px;
+    COLOR: #133e83;
+  font-family:Tahoma;
+    TEXT-DECORATION: underline
+}
+.sublinks:hover
+{
+    FONT-WEIGHT: normal;
+    FONT-SIZE: 11px;
+    COLOR: #ff3300;
+  font-family:Tahoma;
+    TEXT-DECORATION: underline
+}
+.bg01
+{
+    BACKGROUND-COLOR: #f2f2f2
+}
+.bg02
+{
+    BACKGROUND-COLOR: #e1e8f2
+}
+/*================AKP Temp Styles Ends============================*/
+
+.imgline
+{
+		
+	background-image:url("../images/line.gif");
+	background-position:left top;
+	background-repeat:no-repeat;
+	font-size:1px;
+	width:417px;
+	height:2px;
+	
+	
+	
+}
+
+.close
+{
+	background-image:url("../images/close.gif");
+	background-position:left top;
+	background-repeat:no-repeat;
+	height:50px;
+	width:7px;
+	font-size:1px;	
+}
+.open
+{
+	background-image:url("../images/open.gif");
+	background-position:left top;
+	background-repeat:no-repeat;
+	height:50px;
+	width:7px;
+	font-size:1px;	
+}
+
+.GridAlternate 
+{
+	
+	BackColor: #2C66AF;
+	
+}
+.smallFont
+{
+	font-family:Tahoma;
+	font-size: 9px;
+	color: #999999;
+}
+
+.mandatory 
+{
+	font-family:Tahoma;
+	font-size: 10px;
+	text-align:left;
+	color: #990000;
+	font-weight: bold;	
+}
+
+.errorValidation {
+    color:#D63301;
+    border: 1px solid #D63301;
+
+    padding-right:20px;
+         
+    background-color: #FFCCBA;
+    background-image: url('../images/validation32.png');
+    background-position: right center;
+    background-repeat: no-repeat;
+    margin: 15px 0px 15px 0px ;
+}
+
+.borderButton
+{
+	border: 2px solid #9D9D9D;
+	height: 21px;
+}
+
+.myListBox2
+{
+    text-align:right;
+    cursor: pointer;
+    font-size: 12px;
+}
+
+.myListBox
+{
+    border-right: 1px solid #195284;
+    border-left: 1px solid #195284;
+    border-bottom: 1px solid #195284;
+    /*border-top-style: none;*/
+    /*border-width: 0px;*/
+    /*border: none;*/
+    /*font-size: 10pt;*/
+    cursor: pointer;
+}
+
+
+/*==============================================================================================*/
+/*aling control*/
+/*==============================================================================================*/
+.PageDir  { direction:  rtl;   }
+.td1Allalign { text-align: left;  vertical-align:middle; }
+.td2Allalign { text-align: right; vertical-align:middle; }
+.td1align { text-align: left;  }
+.td2align { text-align: right; }
+/*==============================================================================================*/
+
+
+/*==============================================================================================*/
+/*Msg Css*/
+/*==============================================================================================*/
+.MsgInfo, .MsgSuccess, .MsgWarning, .MsgError, .MsgValidation {
+    border: 1px solid;
+    /*margin: 10px 0px;*/
+    margin: 0px 0px 15px 0px ;
+    /*padding:15px 10px 15px 50px;*/
+    padding-right: 20px;
+    background-repeat: no-repeat;
+    /*background-position: 10px center;*/
+    background-position: right center;
+}
+
+
+.MsgInfo {
+    color: #00529B;
+    border-color: #00529B;
+    background-color: #BDE5F8;
+    background-image: url("../Images/Message/info32.png");
+}
+
+.MsgSuccess 
+{
+    color: #4F8A10;
+    border-color: #4F8A10;
+    background-color: #DFF2BF;
+    background-image:url("../Images/Message/success32.png");
+}
+
+.MsgWarning {
+    color: #9F6000;
+    border-color: #9F6000;
+    background-color: #FEEFB3;
+    background-image: url("../Images/Message/warning32.png");
+}
+
+.MsgError {
+    color: #D8000C;
+    border-color: #D8000C;
+    background-color: #FFBABA;
+    background-image: url("../Images/Message/error32.png");
+}
+
+.MsgValidation {
+    color: #D63301;
+    border-color: #D63301;
+    background-color: #FFCCBA;
+    background-image: url("../Images/Message/validation32.png");
+}
+/*==============================================================================================*/
+
+
+/*==============================================================================================*/
+/*Msg Css*/
+/*==============================================================================================*/
+.MsgLabelInfo {
+    border: 1px solid;
+    margin: 0px 0px 15px 0px ;
+    padding-right: 50px;
+    background-repeat: no-repeat;
+    background-position: right center;
+}
+
+.MsgLabelInfo {
+    color: #00529B;
+    border-color: #00529B;
+    background-color: #BDE5F8;
+    background-image: url("../Images/Message/info32.png");
+}
+/*==============================================================================================*/
+.rp_Title
+{
+	background-repeat:no-repeat;
+	background-image: url('../Images/Footer2.jpg');
+	background-repeat: repeat-x;
+	width: 100%;
+	height: 50px;
+	bottom:0;
+	left:0;
+}
+
+
+/*==============================================================================================*/
+/*Login Css*/
+/*==============================================================================================*/
+.tp_logoin
+{
+    width: 771px;  
+    height: 450px;
+    background: url(../images/Login2.jpg) no-repeat;
+}
+
+/*==============================================================================================*/
+/*Header Css*/
+/*==============================================================================================*/
+.tp_LogoHeader
+{
+    display: inline;
+    clear: right;
+    float: right;
+    width: 1195px; 
+    height: 218px;
+    background: url(../images/LogoHeader2.jpg) no-repeat;
+}
+
+.ChangeLang 
+{
+	background: url(../images/english_icon.png) no-repeat;
+}
